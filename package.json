@@ -1,0 +1,14 @@
+{
+    "name": "camswords-build-light",
+    "version": "0.0.1",
+    "description": "Build light (literally) for my project",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/camswords/raspberry-pi-build-light"
+    },
+    "private": true,
+    "dependencies": {
+        "restler": "*",
+        "q": "*"
+    }
+}

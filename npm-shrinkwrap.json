@@ -1,0 +1,48 @@
+{
+  "name": "camswords-build-light",
+  "version": "0.0.1",
+  "dependencies": {
+    "q": {
+      "version": "1.1.1",
+      "from": "q@"
+    },
+    "restler": {
+      "version": "3.2.2",
+      "from": "restler@*",
+      "dependencies": {
+        "qs": {
+          "version": "0.6.6",
+          "from": "qs@0.6.6"
+        },
+        "xml2js": {
+          "version": "0.4.0",
+          "from": "xml2js@0.4.0",
+          "dependencies": {
+            "sax": {
+              "version": "0.5.8",
+              "from": "sax@0.5.x"
+            },
+            "xmlbuilder": {
+              "version": "2.4.5",
+              "from": "xmlbuilder@>=0.4.2",
+              "dependencies": {
+                "lodash-node": {
+                  "version": "2.4.1",
+                  "from": "lodash-node@~2.4.1"
+                }
+              }
+            }
+          }
+        },
+        "yaml": {
+          "version": "0.2.3",
+          "from": "yaml@0.2.3"
+        },
+        "iconv-lite": {
+          "version": "0.2.11",
+          "from": "iconv-lite@0.2.11"
+        }
+      }
+    }
+  }
+}
