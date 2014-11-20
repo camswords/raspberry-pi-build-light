@@ -12,7 +12,8 @@ module.exports = {
             var projects = ccTray.Projects.Project.map(function (project) {
                 return {
                     name: project['$']['name'],
-                    activity: project['$']['activity']
+                    activity: project['$']['activity'],
+                    status: project['$']['lastBuildStatus']
                 };
             });
 
