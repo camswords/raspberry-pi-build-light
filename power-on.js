@@ -1,8 +1,7 @@
 
 var snapCI = require('./src/snap-ci');
+var supportTeam = require('./src/support-team');
 
-snapCI.latest().then(function(projects) {
-    projects.forEach(function(project) {
-       console.log(project);
-    });
-}).done();
+setInterval(snapCI.poll, 10000);
+setInterval(supportTeam.notify, 1000);
+

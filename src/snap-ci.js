@@ -1,13 +1,12 @@
 var http = require('restler');
-var Q = require('q');
+var Projects = require('./projects');
+var projectsRepository = require('./projects-repository');
 
 module.exports = {
-    latest: function() {
-        var results = Q.defer();
-
+    poll: function() {
         http.get(process.env.CC_TRAY_URL).on('complete', function (ccTray) {
             if (ccTray instanceof Error) {
-                return results.reject(ccTray);
+                console.log('failed to get snap-ci status, error is', ccTray);
             }
 
             var projects = ccTray.Projects.Project.map(function (project) {
@@ -17,9 +16,7 @@ module.exports = {
                 };
             });
 
-            results.resolve(projects);
+            projectsRepository.save(Projects.create(projects));
         });
-
-        return results.promise;
     }
 };
