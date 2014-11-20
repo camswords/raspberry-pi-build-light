@@ -2,8 +2,18 @@ var projectsRepository = require('./projects-repository');
 
 module.exports = {
     notify: function() {
-        projectsRepository.retrieve().forEach(function(project) {
-            console.log(project.name, project.activity, project.status);
-        });
+        var projects = projectsRepository.retrieve();
+
+        if (projects.hasBuildingBuild()) {
+            console.log('building');
+        }
+
+        if (projects.hasSuccessfulBuild()) {
+            console.log('success');
+        }
+
+        if (projects.hasFailedBuild()) {
+            console.log('failure');
+        }
     }
 };
