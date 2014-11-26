@@ -11,6 +11,8 @@ module.exports = {
             if (projects.hasBuildingBuild()) {
                 console.log('building');
                 lights.turnOnLightOne();
+            } else {
+                lights.turnOffLightOne();
             }
         };
 
@@ -18,6 +20,8 @@ module.exports = {
             if (projects.hasSuccessfulBuild()) {
                 console.log('success');
                 lights.turnOnLightTwo();
+            } else {
+                lights.turnOffLightTwo();
             }
         };
 
@@ -25,6 +29,8 @@ module.exports = {
             if (projects.hasFailedBuild()) {
                 console.log('failure');
                 lights.turnOnLightThree();
+            } else {
+                lights.turnOffLightThree();
             }
         };
 
