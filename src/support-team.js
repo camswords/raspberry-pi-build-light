@@ -1,11 +1,15 @@
 var projectsRepository = require('./projects-repository');
 var lights = require('./lights');
+var clock = require('./clock');
 
 module.exports = {
     notify: function() {
+        
+        if (clock.bedTime()) {
+            lights.turnAllLightsOff();
+        }
+        
         var projects = projectsRepository.retrieve();
-
-
 
         var building = function() {
             if (projects.hasBuildingBuild()) {
