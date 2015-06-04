@@ -1,6 +1,7 @@
 var projectsRepository = require('./projects-repository');
 var lights = require('./lights');
 var clock = require('./clock');
+var logger = require('./logger');
 
 module.exports = {
     notify: function() {
@@ -13,7 +14,7 @@ module.exports = {
 
         var building = function() {
             if (projects.hasBuildingBuild()) {
-                console.log('building');
+                logger.info('building');
                 lights.turnOnLightOne();
             } else {
                 lights.turnOffLightOne();
@@ -22,7 +23,7 @@ module.exports = {
 
         var successful = function() {
             if (projects.hasSuccessfulBuild()) {
-                console.log('success');
+                logger.info('success');
                 lights.turnOnLightTwo();
             } else {
                 lights.turnOffLightTwo();
@@ -31,7 +32,7 @@ module.exports = {
 
         var failed = function() {
             if (projects.hasFailedBuild()) {
-                console.log('failure');
+                logger.info('failure');
                 lights.turnOnLightThree();
             } else {
                 lights.turnOffLightThree();
