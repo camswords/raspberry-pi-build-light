@@ -12,10 +12,11 @@ var Address = {
 
 module.exports = function() {
     var addresses = [];
-
-    _.each(Object.keys(os.networkInterfaces()), function(ifname) {
-        var interfaces = _.filter(os.networkInterfaces()[ifname], function(iface) { 
-            return iface && iface.family !== 'IPv4' && !iface.internal; 
+    var networkInterfaces = os.networkInterfaces();
+    
+    _.each(Object.keys(networkInterfaces), function(ifname) {
+        var interfaces = _.filter(networkInterfaces[ifname], function(iface) { 
+            return iface && iface.family === 'IPv4' && !iface.internal; 
         });
         
         _.each(interfaces, function(iface) {

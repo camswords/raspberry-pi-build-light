@@ -6,7 +6,7 @@ var logger = require('./logger');
 module.exports = {
     run: function() {
         _.forEach(networkAddresses(), function(address) {
-            http.post(process.env.THINGSSPEAK_URL, { field1: address.value() })
+            http.post(process.env.THINGSSPEAK_URL + '&field1=' + address.value())
                 .catch(function() {
                     logger.info('failed to notify thingsspeak of address', address);
                 })
