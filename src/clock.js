@@ -8,6 +8,6 @@ module.exports = {
         console.log('bed time?');
         var hourOfDay = parseInt(moment().tz('Australia/Sydney').format('H'));
         console.log('bed time?, hour of day is', hourOfDay);
-        return hourOfDay < 9 || hourOfDay > 18;
+        return hourOfDay < 8 || hourOfDay > 18;
     }
 };
