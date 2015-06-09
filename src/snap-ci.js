@@ -7,9 +7,17 @@ var logger = require('./logger');
 module.exports = {
     poll: function() {
 
-        if (clock.bedTime()) { return; }
+        console.log('polling snap');
+
+
+        if (clock.bedTime()) {
+            console.log(' -- polling snap -- bed time, return');
+            return; 
+        }
 
         var onSuccess = function (ccTray) {
+            console.log(' -- polling snap -- got some projects');
+
             var projects = ccTray.Projects.Project.map(function (project) {
                 return {
                     name: project['$']['name'],
@@ -18,6 +26,7 @@ module.exports = {
                 };
             });
 
+            console.log(' -- polling snap -- saving to repo', projects);
             projectsRepository.save(Projects.create(projects));
         };
         

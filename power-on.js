@@ -1,4 +1,6 @@
 
+
+console.log('power on!');
 var snapCI = require('./src/snap-ci');
 var supportTeam = require('./src/support-team');
 var diagnostics = require('./src/diagnostics');
